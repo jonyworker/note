@@ -1,5 +1,4 @@
 # Tailwind CSS 起手式
-###### tags: `Tailwind CSS`
 
 > [!WARNING]
 > 在執行以下動作前，請先確認有沒有安裝Node.js
