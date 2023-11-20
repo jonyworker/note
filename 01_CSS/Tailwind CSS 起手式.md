@@ -2,7 +2,9 @@
 ###### tags: `Tailwind CSS`
 
 [!WARNING]
+Critical content demanding immediate user attention due to potential risks.
 在執行以下動作前，請先確認有沒有安裝Node.js
+
 [!WARNING]
 Critical content demanding immediate user attention due to potential risks.
 
