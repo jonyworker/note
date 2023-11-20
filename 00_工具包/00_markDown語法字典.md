@@ -140,7 +140,7 @@ The background color is `#ffffff` for light mode and `#000000` for dark mode.
 		<td>
 			<code>`#0969DA`</code>
 		</td>
-		<td>`#RRGGBB`</td>
+		<td><code>`#0969DA`</code></td>
 	</tr>
 	
 </table>
