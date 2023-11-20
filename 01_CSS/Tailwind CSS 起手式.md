@@ -1,9 +1,9 @@
 # Tailwind CSS 起手式
 ###### tags: `Tailwind CSS`
 
-:::warning
+ [!WARNING]
 在執行以下動作前，請先確認有沒有安裝Node.js
-:::
+
 
 ### ==STEP1==  初始 npm 專案
 透過終端機指定資料夾位置後初始 npm 專案，並生成 packge.json 管理安裝模組
