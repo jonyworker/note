@@ -102,6 +102,50 @@ Text that is not a quote
 > > 引用的內容的子內容
 > > > 引用的內容的子子內容
 
+## 建立折疊部分
+可以透過建立讀者可以選擇展開的折疊部分來暫時隱藏 Markdown 的分區。 例如，當想在問題評論中包含可能不是每個讀者都相關或感興趣的技術細節時，可以將這些細節放在折疊部分中。
+
+`<details>` 區塊中的任何 Markdown 都會被折疊，直到讀者點擊 展開詳細資料。
+
+在 `<details>` 區塊中，使用 `<summary>` 標記讓讀者知道裡面的內容。 標籤顯示在 的右側。
+
+<pre>
+<code class="hljs language-markdown"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span></span>
+
+	<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span></span>Tips for collapsed sections<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span></span>
+
+	<span class="hljs-section">### You can add a header</span>
+
+	You can add text within a collapsed section. 
+
+	You can add an image or a code block, too.
+
+	<span class="hljs-code">```ruby
+		puts "Hello World"
+	```</span>
+
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span></span>
+</code></pre>
+
+預設情況下，`<summary>` 標籤中的 Markdown 將被折疊如下：
+
+<details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
+
+
 ## 引用代碼
 使用單引號 ``` ` ``` 可標註句子中的代碼或指令。 反引號中的文字不會被格式化。 你也可以按下 Command+E (Mac) 或 Ctrl+E (Windows/Linux) 鍵盤捷徑將程式碼區塊的反引號插入到 Markdown 一行。
 
@@ -128,32 +172,29 @@ git status
 git add
 git commit
 ```
-## 支援顏色模型
-可以使用反引號在句子中標註顏色。 反引號內支援的顏色模型將顯示顏色的視覺化效果。
-```
-The background color is `#ffffff` for light mode and `#000000` for dark mode.
-```
-The background color is `#ffffff` for light mode and `#000000` for dark mode.
 
-下面是當前支援的顏色模型。
-<table>
-	<tr>
-		<td>Color</td>
-		<td>語法</td>
-		<td>示例</td>
-		<td>輸出</td>
-	</tr>
-	<tr>
-		<td>加粗</td>
-		<td>
-			<code>`#RRGGBB`</code>
-		</td>
-		<td>
-			<code>`#0969DA`</code>
-		</td>
-		<td><code>`#0969DA`</code></td>
-	</tr>
-</table>
+### 語法突顯顯示
+您可以新增可選的語言標識符，以在圍欄代碼區塊中啟用語法突顯。
+
+語法突出顯示功能會變更原始程式碼的顏色和樣式，使其更易於閱讀。
+
+例如，要語法突顯 Ruby 程式碼：
+
+<pre>
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+</pre>
+這將使用語法突出顯示功能顯示程式碼區塊：
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+
 
 ## 連結
 透過將連結文字用方括號 `[ ]` 括起來，然後將 URL 用括號 `( )` 括起來，可建立內嵌連結。 也可以使用鍵盤快捷方式 Command+K 建立連結。 選擇文字後，可以貼上剪貼簿中的 URL 以自動從所選內容建立連結。
@@ -253,3 +294,72 @@ GitHub 將根據您目前使用的分支自動轉換相對連結或影像路徑�
   - [ ] 刷牙
   - [x] 喝水
 
+## 使用表情符號
+你可以透過鍵入 `:EMOJICODE:`（冒號後面跟著表情符號的名稱）將表情符號加入寫作。
+
+```
+@octocat :+1: This PR looks great - it's ready to merge! :heart_eyes:
+```
+@octocat :+1: This PR looks great - it's ready to merge! :heart_eyes:
+
+呈現的 GitHub Markdown 的螢幕截圖，其中顯示了 +1 的表情符號代碼以及 shipit 如何直觀呈現表情符號。
+
+鍵入 `:` 將顯示建議的表情符號清單。 清單將在你鍵入時進行篩選，因此一旦找到所需表情符號，請按 Tab 或 Enter 鍵以填寫突出顯示的結果 。
+
+有關可用表情符號和代碼的完整列表，請參閱 
+ [Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)。
+
+
+## 警告樣式
+```
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help user be more successfull.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+```
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help user be more successfull.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+## 腳註解
+```
+Here is a simple footnote[^1].
+
+A footnote can also have multiple lines[^2].
+
+[^1]: My reference.
+[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
+  This is a second line.
+```
+腳註解呈現如下：
+
+Here is a simple footnote[^1].
+
+A footnote can also have multiple lines[^2].
+
+[^1]: My reference.
+[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
+  This is a second line.
+
+>注意：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
