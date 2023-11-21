@@ -180,13 +180,13 @@ git commit
 
 例如，要語法突顯 Ruby 程式碼：
 
-<pre>
+````
 ```ruby
 require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
-</pre>
+````
 這將使用語法突出顯示功能顯示程式碼區塊：
 ```ruby
 require 'redcarpet'
@@ -195,6 +195,32 @@ puts markdown.to_html
 ```
 
 
+## 支援顏色模型
+可以使用反引號在句子中標註顏色。 反引號內支援的顏色模型將顯示顏色的視覺化效果。
+```
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
+```
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
+
+下面是當前支援的顏色模型。
+<table>
+	<tr>
+		<td>Color</td>
+		<td>語法</td>
+		<td>示例</td>
+		<td>輸出</td>
+	</tr>
+	<tr>
+		<td>加粗</td>
+		<td>
+			<code>`#RRGGBB`</code>
+		</td>
+		<td>
+			<code>`#0969DA`</code>
+		</td>
+		<td><code>`#0969DA`</code></td>
+	</tr>
+</table>
 
 ## 連結
 透過將連結文字用方括號 `[ ]` 括起來，然後將 URL 用括號 `( )` 括起來，可建立內嵌連結。 也可以使用鍵盤快捷方式 Command+K 建立連結。 選擇文字後，可以貼上剪貼簿中的 URL 以自動從所選內容建立連結。
